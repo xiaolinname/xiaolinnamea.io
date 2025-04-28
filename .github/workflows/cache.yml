@@ -13,5 +13,5 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-npm-
       - name: Install dependencies
-        if: steps.cache - npm.outputs.cache - hit != 'true'
+        if: steps.cache-npm.outputs.cache-hit != 'true'
         run: npm install
