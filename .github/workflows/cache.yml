@@ -2,7 +2,7 @@ name: Cache Npm Packages
 on: [push, pull_request]
 jobs:
   cache-npm:
-    runs-on: ubuntu - latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Cache npm dependencies
