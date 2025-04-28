@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Cache npm dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3 # 将v2改为v3，根据最新版本调整
         with:
           path: node_modules
           key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
