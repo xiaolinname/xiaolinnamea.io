@@ -1,0 +1,17 @@
+name: Cache Npm Packages
+on: [push, pull_request]
+jobs:
+  cache-npm:
+    runs-on: ubuntu - latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache npm dependencies
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+      - name: Install dependencies
+        if: steps.cache - npm.outputs.cache - hit != 'true'
+        run: npm install
